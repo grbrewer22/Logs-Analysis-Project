@@ -3,7 +3,7 @@ import psycopg2
 
 
 # Most popular three articles of all time:
-query_1_title = ("What are the most popular three articles of all time?")
+query_1_title = ("Most popular three articles of all time:")
 query_1 = (
     "select articles.title, count(*) as views "
     "from articles inner join log on log.path "
@@ -12,7 +12,7 @@ query_1 = (
     "articles.title, log.path order by views desc limit 3")
 
 # Most popular article authors of all time:
-query_2_title = ("Who are the most popular article authors of all time?")
+query_2_title = ("Most popular article authors of all time:")
 query_2 = (
     "select authors.name, count(*) as views from articles inner "
     "join authors on articles.author = authors.id inner join log "
