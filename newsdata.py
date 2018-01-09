@@ -2,7 +2,7 @@
 import psycopg2
 
 
-# What are the most popular three articles of all time?
+# Most popular three articles of all time:
 query_1_title = ("What are the most popular three articles of all time?")
 query_1 = (
     "select articles.title, count(*) as views "
@@ -11,7 +11,7 @@ query_1 = (
     "where log.status like '%200%' group by "
     "articles.title, log.path order by views desc limit 3")
 
-# Who are the most popular article authors of all time?
+# Most popular article authors of all time:
 query_2_title = ("Who are the most popular article authors of all time?")
 query_2 = (
     "select authors.name, count(*) as views from articles inner "
@@ -43,7 +43,7 @@ def connect(database_name="news"):
 
 
 def get_query_results(query):
-    """Return query results for given query """
+    """Return the query results for given query """
     db, cursor = connect()
     cursor.execute(query)
     return cursor.fetchall()
@@ -73,4 +73,4 @@ if __name__ == '__main__':
     # print the query results
     print_query_results(popular_articles_results)
     print_query_results(popular_authors_results)
-print_error_results(load_error_days)
+    print_error_results(load_error_days)
