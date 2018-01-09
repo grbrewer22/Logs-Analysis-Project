@@ -65,12 +65,12 @@ def print_error_results(query_results):
 
 
 if __name__ == '__main__':
-    # store query results
+    # store the query results
     popular_articles_results = get_query_results(query_1), query_1_title
     popular_authors_results = get_query_results(query_2), query_2_title
     load_error_days = get_query_results(query_3), query_3_title
 
-    # print query results
+    # print the query results
     print_query_results(popular_articles_results)
     print_query_results(popular_authors_results)
 print_error_results(load_error_days)
